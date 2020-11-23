@@ -10,12 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TextView items = findViewById(R.id.items);
+    TextView tv ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tv = (TextView) findViewById(R.id.items);
     }
     public void callScanner(View view) {
         Intent intent = new Intent(MainActivity.this, BarcodeScanner.class);
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
                 String item = data.getStringExtra("editTextValue");
-                Toast.makeText(getApplicationContext(),item,Toast.LENGTH_SHORT).show();
+                tv.setText(item);
             }
         }
     }

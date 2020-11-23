@@ -136,8 +136,6 @@ public class BarcodeScanner extends AppCompatActivity {
     }
 
     public void addItemToCart(View view) {
-        //MainActivity item = new MainActivity();
-        //item.addItem(product_name,product_cost);
         Intent intent = new Intent();
         intent.putExtra("editTextValue", product_details);
         setResult(RESULT_OK, intent);
