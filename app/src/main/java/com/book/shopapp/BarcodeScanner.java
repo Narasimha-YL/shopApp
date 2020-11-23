@@ -32,7 +32,6 @@ public class BarcodeScanner extends AppCompatActivity {
     private BarcodeDetector barcodeDetector;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
-    //This class provides methods to play DTMF tones
     private ToneGenerator toneGen1;
     private TextView barcodeText;
     private String barcodeData;
@@ -49,15 +48,16 @@ public class BarcodeScanner extends AppCompatActivity {
         products_cost.put("8901287100211",62);
         products_name.put("8901571004614","Sensodyne Toothpaste");
         products_cost.put("8901571004614",110);
-        toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC,     100);
+        toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
         surfaceView = findViewById(R.id.surface_view);
         barcodeText = findViewById(R.id.barcode_text);
         initialiseDetectorsAndSources();
     }
 
+    //Function that initialises and uses the barcode scanner
     private void initialiseDetectorsAndSources() {
 
-        //Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Barcode scanner started", Toast.LENGTH_SHORT).show();
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.ALL_FORMATS)
@@ -120,12 +120,16 @@ public class BarcodeScanner extends AppCompatActivity {
                             } else {
 
                                 barcodeData = barcodes.valueAt(0).displayValue;
+                                //If the scanned product is in the database get its details
                                 if(products_name.containsKey(barcodeData)) {
                                     product_name=products_name.get(barcodeData);
                                     product_cost=products_cost.get(barcodeData);
                                     product_details = product_name+"\nCost = Rs."+product_cost;
                                     barcodeText.setText(product_details);
                                     toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
+                                }
+                                else{
+                                    barcodeText.setText("Please scan again");
                                 }
                             }
                         }
@@ -135,9 +139,10 @@ public class BarcodeScanner extends AppCompatActivity {
         });
     }
 
+    //Add the scanned item to cart by sending it's details to main activity
     public void addItemToCart(View view) {
         Intent intent = new Intent();
-        intent.putExtra("editTextValue", product_details);
+        intent.putExtra("item", product_details);
         setResult(RESULT_OK, intent);
         finish();
     }
