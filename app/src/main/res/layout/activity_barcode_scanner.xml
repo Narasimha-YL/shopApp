@@ -2,7 +2,6 @@
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <SurfaceView
         android:id="@+id/surface_view"
@@ -20,7 +19,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:text="Select Item"
-        android:layout_height="50dp">
+        android:text="Add Item to cart"
+        android:layout_height="50dp"
+        android:onClick="addItemToCart">
     </Button>
 </LinearLayout>
