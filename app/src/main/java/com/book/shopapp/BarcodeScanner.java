@@ -46,7 +46,7 @@ public class BarcodeScanner extends AppCompatActivity {
         setContentView(R.layout.activity_barcode_scanner);
         products_name.put("8901287100211","Mysore Sandal");
         products_cost.put("8901287100211",62);
-        products_name.put("8901571004614","Sensodyne Toothpaste");
+        products_name.put("8901571004614","Sensodyne Toothpaste double extra pieces nice ");
         products_cost.put("8901571004614",110);
         toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
         surfaceView = findViewById(R.id.surface_view);
