@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 product_name_tv.setLayoutParams(params1);
                 product_name_tv.setBackground(getDrawable(R.drawable.colordarkforitemlist));
                 product_name_tv.setTextColor(Color.parseColor("#FFFFFF"));
-                product_name_tv.setTextSize(24);
+                product_name_tv.setTextSize(18);
                 product_name_tv.setText(product_name);
                 product_name_tv.setGravity(Gravity.CENTER);
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 product_quant.setLayoutParams(params2);
                 product_quant.setBackground(getDrawable(R.drawable.colordarkforitemlist));
                 product_quant.setTextColor(Color.parseColor("#FFFFFF"));
-                product_quant.setTextSize(24);
+                product_quant.setTextSize(18);
                 product_quant.setText(Integer.toString(1));
                 product_quant.setGravity(Gravity.CENTER);
 
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 product_cost_tv.setBackground(getDrawable(R.drawable.colordarkforitemlist));
                 product_cost_tv.setTextColor(Color.parseColor("#FFFFFF"));
                 product_cost_tv.setLayoutParams(params3);
-                product_cost_tv.setTextSize(24);
+                product_cost_tv.setTextSize(18);
                 product_cost_tv.setText(Integer.toString(product_cost));
                 product_cost_tv.setGravity(Gravity.CENTER);
 
