@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     LayoutInflater inflater;
     View v;
     ScrollView sv;
+    LinearLayout ll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = (View) inflater.inflate(R.layout.activity_main, null);
         sv = (ScrollView) v.findViewById(R.id.cart);
+        ll = (LinearLayout) v.findViewById(R.id.ll);
     }
 
     //Button OnClick for Scanning Barcode
@@ -39,14 +41,12 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1) {
             if(resultCode == RESULT_OK) {
                 String item = data.getStringExtra("item");
-                LinearLayout ll = new LinearLayout(this);
-                ll.setOrientation(LinearLayout.VERTICAL);
                 // Add text
                 TextView tv = new TextView(this);
+                tv.setTextSize(24);
                 tv.setText(item);
                 ll.addView(tv); //Adding TextView to LinearLayout
                 // Add the LinearLayout element to the ScrollView
-                sv.addView(ll);
                 setContentView(v);
             }
         }

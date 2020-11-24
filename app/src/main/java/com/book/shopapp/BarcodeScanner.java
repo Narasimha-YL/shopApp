@@ -128,9 +128,6 @@ public class BarcodeScanner extends AppCompatActivity {
                                     barcodeText.setText(product_details);
                                     toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
                                 }
-                                else{
-                                    barcodeText.setText("Please scan again");
-                                }
                             }
                         }
                     });
