@@ -124,7 +124,7 @@ public class BarcodeScanner extends AppCompatActivity {
                                 if(products_name.containsKey(barcodeData)) {
                                     product_name=products_name.get(barcodeData);
                                     product_cost=products_cost.get(barcodeData);
-                                    product_details = product_name+"\nCost = Rs."+product_cost;
+                                    product_details = product_name+"\n"+product_cost;
                                     barcodeText.setText(product_details);
                                     toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
                                 }
