@@ -138,9 +138,13 @@ public class BarcodeScanner extends AppCompatActivity {
 
     //Add the scanned item to cart by sending it's details to main activity
     public void addItemToCart(View view) {
-        Intent intent = new Intent();
-        intent.putExtra("item", product_details);
-        setResult(RESULT_OK, intent);
-        finish();
+        if(product_details == null)
+            Toast.makeText(getApplicationContext(), "please scan the item properly", Toast.LENGTH_SHORT).show();
+        else {
+            Intent intent = new Intent();
+            intent.putExtra("item", product_details);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
 }

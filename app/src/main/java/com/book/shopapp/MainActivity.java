@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     View v;
     ScrollView sv;
     TableLayout tl;
+    int totalCost = 0;
+    TextView costView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         v = inflater.inflate(R.layout.activity_main, null);
         sv = v.findViewById(R.id.cart);
         tl = v.findViewById(R.id.table);
+        costView = v.findViewById(R.id.totalCost);
     }
 
     //Button OnClick for Scanning Barcode
@@ -50,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 List<String> item_list = new ArrayList<String>(Arrays.asList(item.split("\n")));
                 String product_name = item_list.get(0);
                 int product_cost = Integer.parseInt(item_list.get(1));
-
+                totalCost += product_cost;
+                costView.setText(Integer.toString(totalCost));
 
                 // Create TextView for product name
                 TextView product_name_tv = new TextView(this);
